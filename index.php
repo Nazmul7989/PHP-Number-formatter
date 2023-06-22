@@ -7,7 +7,7 @@
         $number = $this->makeStringToNumber($value);
 
         if ($formatType == 'en') {
-
+          //For English format (Inserting comma before each thee digits from last side)
             $digitCount = strlen($number);
             $result = $digitCount / 3;
 
@@ -28,6 +28,7 @@
             $formattedNumber = $firstPortion ? $firstPortion . ',' . $formatNumber : $formatNumber;
 
         } else {
+          //For Bangla format (Inserting comma befor three digits from last side and then inseting comma bebore each two digits from right side for remaining amount)
             $lastThreeDigits = substr($number, -3);
             $remainingDigits = substr_replace($number, '', -3);
             $digitCount = strlen($remainingDigits);
